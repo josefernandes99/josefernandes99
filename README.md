@@ -140,6 +140,6 @@ Minimalist but recognizably me. (From `svg/github_svg_ascii2.txt`)
 ## 🤖 Automation Under the Hood
 - `metrics.yml`: renders `metrics.svg` daily (lowlighter/metrics) and commits it.
 - `update-waka.yml`: pulls your last 7 days from WakaTime into this README.
-- `bootstrap-readme.yml`: detects placeholders `YOUR_USERNAME`/`YOUR_NAME` (if present) and auto-fills them using the repo owner + GitHub profile name, then commits. No manual edits needed if you fork/duplicate.
+- `bootstrap-readme.yml`: detects placeholders `josefernandes99`/`José Fernandes` (if present) and auto-fills them using the repo owner + GitHub profile name, then commits. No manual edits needed if you fork/duplicate.
 
 > Only manual step left: add two secrets once — `METRICS_TOKEN` (GitHub PAT: scopes `public_repo`, `read:user`) and `WAKATIME_API_KEY` (from wakatime.com/api-key). Actions must be enabled for the repo.
