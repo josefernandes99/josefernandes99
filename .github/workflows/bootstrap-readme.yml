@@ -1,0 +1,47 @@
+name: Bootstrap README placeholders
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Replace placeholders if present
+        id: replace
+        env:
+          OWNER: ${{ github.repository_owner }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          FILE=README.md
+          if ! grep -q "YOUR_USERNAME" "$FILE" && ! grep -q "YOUR_NAME" "$FILE"; then
+            echo "no_placeholders=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          name=$(curl -s -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/users/$OWNER | jq -r '.name // ""')
+          if [ -z "$name" ] || [ "$name" = "null" ]; then
+            name="$OWNER"
+          fi
+
+          sed -i "s/YOUR_USERNAME/$OWNER/g" "$FILE"
+          sed -i "s/YOUR_NAME/$name/g" "$FILE"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$FILE"
+          git commit -m "chore: personalize README placeholders" || true
+
+      - name: Push changes
+        if: steps.replace.outputs.no_placeholders != 'true'
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
