@@ -19,7 +19,7 @@ jobs:
           template: classic
           filename: metrics.svg
           base: header, activity, community, repositories, metadata
-          config_timezone: America/New_York
+          config_timezone: Europe/Lisbon
           output_action: commit
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           plugin_isocalendar: yes
