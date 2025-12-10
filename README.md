@@ -40,13 +40,6 @@
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=josefernandes99&theme=github-compact&hide_border=true&custom_title=Recent%20Contribution%20Graph" alt="Contribution graph" />
 </p>
 
-### Weekly Coding Breakdown
-<!--START_SECTION:waka-->
-*Loading… first update will appear after the workflow runs once.*
-<!--END_SECTION:waka-->
-
----
-
 ## 🧰 Tech Stack Snapshot
 
 `Python` · `TypeScript` · `Node.js` · `React` · `FastAPI` · `PostgreSQL` · `Docker` · `AWS` · `GitHub Actions` · `CI/CD`
