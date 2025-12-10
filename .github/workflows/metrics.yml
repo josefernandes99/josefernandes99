@@ -29,6 +29,6 @@ jobs:
           plugin_followup: yes
           plugin_followup_sections: repositories
           plugin_lines: yes
-          plugin_habits: yes
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
+          # Habits plugin is currently failing upstream with "author undefined" for some event payloads.
+          # Disable to keep renders green; re-enable once lowlighter/metrics fixes the bug.
+          plugin_habits: no
