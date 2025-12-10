@@ -23,7 +23,7 @@ jobs:
         run: |
           set -e
           FILE=README.md
-          if ! grep -q "YOUR_USERNAME" "$FILE" && ! grep -q "YOUR_NAME" "$FILE"; then
+          if ! grep -q "josefernandes99" "$FILE" && ! grep -q "YOUR_NAME" "$FILE"; then
             echo "no_placeholders=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -33,7 +33,7 @@ jobs:
             name="$OWNER"
           fi
 
-          sed -i "s/YOUR_USERNAME/$OWNER/g" "$FILE"
+          sed -i "s/josefernandes99/$OWNER/g" "$FILE"
           sed -i "s/YOUR_NAME/$name/g" "$FILE"
 
           git config user.name "github-actions[bot]"
